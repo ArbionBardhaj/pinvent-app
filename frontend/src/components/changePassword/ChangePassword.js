@@ -25,7 +25,7 @@ const ChangePassword = () => {
     e.preventDefault();
 
     if (password !== password2) {
-      return toast.error("New passwords do not match");
+      return toast.error("Fjalëkalimet e reja nuk përputhen.");
     }
 
     const formData = {
@@ -41,11 +41,11 @@ const ChangePassword = () => {
   return (
     <div className="change-password">
       <Card cardClass={"password-card"}>
-        <h3>Change Password</h3>
+        <h3>Ndrysho fjalkalimin</h3>
         <form onSubmit={changePass} className="--form-control">
           <input
             type="password"
-            placeholder="Old Password"
+            placeholder="Fjalekalimi i vjeter"
             required
             name="oldPassword"
             value={oldPassword}
@@ -53,7 +53,7 @@ const ChangePassword = () => {
           />
           <input
             type="password"
-            placeholder="New Password"
+            placeholder="Fjalekalimi i ri"
             required
             name="password"
             value={password}
@@ -61,14 +61,14 @@ const ChangePassword = () => {
           />
           <input
             type="password"
-            placeholder="Confirm New Password"
+            placeholder="Konfirmoni fjalekalimin e ri"
             required
             name="password2"
             value={password2}
             onChange={handleInputChange}
           />
           <button type="submit" className="--btn --btn-primary">
-            Change Password
+            Ndrysho fjalekalimin
           </button>
         </form>
       </Card>

@@ -8,13 +8,13 @@ const contactUs = asyncHandler(async (req, res) => {
 
   if (!user) {
     res.status(400);
-    throw new Error("User not found, please signup");
+    throw new Error("Perdoruesi nuk u gjet, ju lutem regjistrohuni");
   }
 
   //   Validation
   if (!subject || !message) {
     res.status(400);
-    throw new Error("Please add subject and message");
+    throw new Error("Ju lutem vendosni nje subjekt ne mesazh");
   }
 
   const send_to = process.env.EMAIL_USER;
@@ -25,7 +25,7 @@ const contactUs = asyncHandler(async (req, res) => {
     res.status(200).json({ success: true, message: "Email Sent" });
   } catch (error) {
     res.status(500);
-    throw new Error("Email not sent, please try again");
+    throw new Error("Email-i nuk u dergua, ju lutem provoni perseri");
   }
 });
 

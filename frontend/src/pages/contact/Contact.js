@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Card from "../../components/card/Card";
 import "./Contact.scss";
-import { FaPhoneAlt, FaEnvelope, FaTwitter } from "react-icons/fa";
+import { FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import { GoLocation } from "react-icons/go";
 import { toast } from "react-toastify";
 import axios from "axios";
@@ -29,11 +29,11 @@ const Contact = () => {
 
   return (
     <div className="contact">
-      <h3 className="--mt">Contact Us</h3>
+      <h3 className="--mt">Na kontaktoni</h3>
       <div className="section">
         <form onSubmit={sendEmail}>
           <Card cardClass="card">
-            <label>Subject</label>
+            <label>Subjekti</label>
             <input
               type="text"
               name="subject"
@@ -42,7 +42,7 @@ const Contact = () => {
               value={subject}
               onChange={(e) => setSubject(e.target.value)}
             />
-            <label>Message</label>
+            <label>Mesaszhi</label>
             <textarea
               cols="30"
               rows="10"
@@ -51,32 +51,29 @@ const Contact = () => {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
             ></textarea>
-            <button className="--btn --btn-primary">Send Message</button>
+            <button className="--btn --btn-primary">Dergo mesazh</button>
           </Card>
         </form>
 
         <div className="details">
           <Card cardClass={"card2"}>
-            <h3>Our Contact Information</h3>
-            <p>Fill the form or contact us via other channels listed below</p>
+            <h3>Menyrat se si mund te na kontaktoni</h3>
+            <p>Plotesoni formularin ose na kontaktoni nga menyrat e kontaktit te listuara me posht</p>
 
             <div className="icons">
               <span>
                 <FaPhoneAlt />
-                <p>070123123123</p>
+                <p>+355 685272847</p>
               </span>
               <span>
                 <FaEnvelope />
-                <p>Support@invent.com</p>
+                <p>Support-inventari-MJ@outlook.com</p>
               </span>
               <span>
                 <GoLocation />
-                <p>Abuja, Nigeria</p>
+                <p>Dimal, Albania</p>
               </span>
-              <span>
-                <FaTwitter />
-                <p>@ZinoTrust</p>
-              </span>
+         
             </div>
           </Card>
         </div>

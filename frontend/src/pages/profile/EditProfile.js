@@ -97,7 +97,7 @@ const EditProfile = () => {
         <form className="--form-control --m" onSubmit={saveProfile}>
           <span className="profile-data">
             <p>
-              <label>Name:</label>
+              <label>Emri:</label>
               <input
                 type="text"
                 name="name"
@@ -109,10 +109,10 @@ const EditProfile = () => {
               <label>Email:</label>
               <input type="text" name="email" value={profile?.email} disabled />
               <br />
-              <code>Email cannot be changed.</code>
+              <code>Email-i nuk mund te ndryshohet.</code>
             </p>
             <p>
-              <label>Phone:</label>
+              <label>Telefon:</label>
               <input
                 type="text"
                 name="phone"
@@ -131,11 +131,11 @@ const EditProfile = () => {
               ></textarea>
             </p>
             <p>
-              <label>Photo:</label>
+              <label>Foto:</label>
               <input type="file" name="image" onChange={handleImageChange} />
             </p>
             <div>
-              <button className="--btn --btn-primary">Edit Profile</button>
+              <button className="--btn --btn-primary">Edito Profilin</button>
             </div>
           </span>
         </form>

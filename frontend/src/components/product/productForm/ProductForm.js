@@ -20,9 +20,9 @@ const ProductForm = ({
       <Card cardClass={"card"}>
         <form onSubmit={saveProduct}>
           <Card cardClass={"group"}>
-            <label>Product Image</label>
+            <label>Imazhi i produktit</label>
             <code className="--color-dark">
-              Supported Formats: jpg, jpeg, png
+              Formatet e supotuara: jpg, jpeg, png
             </code>
             <input
               type="file"
@@ -35,46 +35,46 @@ const ProductForm = ({
                 <img src={imagePreview} alt="product" />
               </div>
             ) : (
-              <p>No image set for this poduct.</p>
+              <p>Nuk ka nje imazh per kete produkt.</p>
             )}
           </Card>
-          <label>Product Name:</label>
+          <label>Emri i produktit:</label>
           <input
             type="text"
-            placeholder="Product name"
+            placeholder="Emri i produktit"
             name="name"
             value={product?.name}
             onChange={handleInputChange}
           />
 
-          <label>Product Category:</label>
+          <label>Kategoria e produktit:</label>
           <input
             type="text"
-            placeholder="Product Category"
+            placeholder="Kategoria e produktit"
             name="category"
             value={product?.category}
             onChange={handleInputChange}
           />
 
-          <label>Product Price:</label>
+          <label>Cmimi i produktit:</label>
           <input
             type="text"
-            placeholder="Product Price"
+            placeholder="Cmimi i produktit"
             name="price"
             value={product?.price}
             onChange={handleInputChange}
           />
 
-          <label>Product Quantity:</label>
+          <label>Sasia e produktit:</label>
           <input
             type="text"
-            placeholder="Product Quantity"
+            placeholder="Sasia e produktit"
             name="quantity"
             value={product?.quantity}
             onChange={handleInputChange}
           />
 
-          <label>Product Description:</label>
+          <label>Pershkrimi i produktit:</label>
           <ReactQuill
             theme="snow"
             value={description}
@@ -85,7 +85,7 @@ const ProductForm = ({
 
           <div className="--my">
             <button type="submit" className="--btn --btn-primary">
-              Save Product
+              Ruaj
             </button>
           </div>
         </form>

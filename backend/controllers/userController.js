@@ -18,11 +18,11 @@ const registerUser = asyncHandler(async (req, res) => {
   // Validation
   if (!name || !email || !password) {
     res.status(400);
-    throw new Error("Please fill in all required fields");
+    throw new Error("Ju lutem plotesoni te gjitha fushat e kerkuara");
   }
   if (password.length < 6) {
     res.status(400);
-    throw new Error("Password must be up to 6 characters");
+    throw new Error("Passwordi duhet te jete te pakten 6 karaktere i gjate");
   }
 
   // Check if user email already exists
@@ -30,7 +30,7 @@ const registerUser = asyncHandler(async (req, res) => {
 
   if (userExists) {
     res.status(400);
-    throw new Error("Email has already been registered");
+    throw new Error("Ky email eshte regjistruar njehere");
   }
 
   // Create new user
@@ -65,7 +65,7 @@ const registerUser = asyncHandler(async (req, res) => {
     });
   } else {
     res.status(400);
-    throw new Error("Invalid user data");
+    throw new Error("Te dhenat e perdoruesit jane gabim");
   }
 });
 
@@ -76,7 +76,7 @@ const loginUser = asyncHandler(async (req, res) => {
   // Validate Request
   if (!email || !password) {
     res.status(400);
-    throw new Error("Please add email and password");
+    throw new Error("Ju lutem vendosni email dhe password");
   }
 
   // Check if user exists
@@ -84,7 +84,7 @@ const loginUser = asyncHandler(async (req, res) => {
 
   if (!user) {
     res.status(400);
-    throw new Error("User not found, please signup");
+    throw new Error("Perdoruesi nuk u gjet, ju lutem regjistrohuni");
   }
 
   // User exists, check if password is correct
@@ -116,7 +116,7 @@ const loginUser = asyncHandler(async (req, res) => {
     });
   } else {
     res.status(400);
-    throw new Error("Invalid email or password");
+    throw new Error("Email ose password eshte gabim");
   }
 });
 
@@ -129,7 +129,7 @@ const logout = asyncHandler(async (req, res) => {
     sameSite: "none",
     secure: true,
   });
-  return res.status(200).json({ message: "Successfully Logged Out" });
+  return res.status(200).json({ message: "Log out u be me sukses" });
 });
 
 // Get User Data
@@ -148,7 +148,7 @@ const getUser = asyncHandler(async (req, res) => {
     });
   } else {
     res.status(400);
-    throw new Error("User Not Found");
+    throw new Error("Perdoruesi nuk u gjet");
   }
 });
 
@@ -189,7 +189,7 @@ const updateUser = asyncHandler(async (req, res) => {
     });
   } else {
     res.status(404);
-    throw new Error("User not found");
+    throw new Error("Perdoruesi nuk u gjet");
   }
 });
 
@@ -199,12 +199,12 @@ const changePassword = asyncHandler(async (req, res) => {
 
   if (!user) {
     res.status(400);
-    throw new Error("User not found, please signup");
+    throw new Error("Perdoruesi nuk u gjet, ju lutem regjistrohuni");
   }
   //Validate
   if (!oldPassword || !password) {
     res.status(400);
-    throw new Error("Please add old and new password");
+    throw new Error("Ju lutem vendosni password-in e vjeter dhe ate te riun");
   }
 
   // check if old password matches password in DB
@@ -214,10 +214,10 @@ const changePassword = asyncHandler(async (req, res) => {
   if (user && passwordIsCorrect) {
     user.password = password;
     await user.save();
-    res.status(200).send("Password change successful");
+    res.status(200).send("Passwordi u be reset me sukses");
   } else {
     res.status(400);
-    throw new Error("Old password is incorrect");
+    throw new Error("Password-i i vjeter eshte gabim");
   }
 });
 
@@ -227,7 +227,7 @@ const forgotPassword = asyncHandler(async (req, res) => {
 
   if (!user) {
     res.status(404);
-    throw new Error("User does not exist");
+    throw new Error("Perdoruesi nuk ekziston");
   }
 
   // Delete token if it exists in DB
@@ -259,16 +259,16 @@ const forgotPassword = asyncHandler(async (req, res) => {
 
   // Reset Email
   const message = `
-      <h2>Hello ${user.name}</h2>
-      <p>Please use the url below to reset your password</p>  
-      <p>This reset link is valid for only 30minutes.</p>
+      <h2>Pershendetje ${user.name}</h2>
+      <p>Ju lutem perdorni linkun me posht per ti ber reset passwordit tuaj</p>  
+      <p>Ky link eshte i vlefshem vetem per 30 minuta.</p>
 
       <a href=${resetUrl} clicktracking=off>${resetUrl}</a>
 
-      <p>Regards...</p>
-      <p>Pinvent Team</p>
+      <p>Me respekt</p>
+      <p>Stafi i Gjimnazit "Muhamer Janina"</p>
     `;
-  const subject = "Password Reset Request";
+  const subject = "Kerkese per rivendosje passwordi";
   const send_to = user.email;
   const sent_from = process.env.EMAIL_USER;
 
@@ -308,7 +308,7 @@ const resetPassword = asyncHandler(async (req, res) => {
   user.password = password;
   await user.save();
   res.status(200).json({
-    message: "Password Reset Successful, Please Login",
+    message: "Passwordi u be reset me sukses, ju lutem logohuni",
   });
 });
 

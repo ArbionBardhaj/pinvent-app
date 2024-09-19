@@ -40,15 +40,15 @@ const ProductList = ({ products, isLoading }) => {
 
   const confirmDelete = (id) => {
     confirmAlert({
-      title: "Delete Product",
-      message: "Are you sure you want to delete this product.",
+      title: "Fshi produktin",
+      message: "A jeni te sigurt qe doni te fshini produktin.",
       buttons: [
         {
-          label: "Delete",
+          label: "Fshi",
           onClick: () => delProduct(id),
         },
         {
-          label: "Cancel",
+          label: "Jo",
           // onClick: () => alert('Click No')
         },
       ],
@@ -84,7 +84,7 @@ const ProductList = ({ products, isLoading }) => {
       <div className="table">
         <div className="--flex-between --flex-dir-column">
           <span>
-            <h3>Inventory Items</h3>
+            <h3>Lista e produkteve</h3>
           </span>
           <span>
             <Search
@@ -104,12 +104,12 @@ const ProductList = ({ products, isLoading }) => {
               <thead>
                 <tr>
                   <th>s/n</th>
-                  <th>Name</th>
-                  <th>Category</th>
-                  <th>Price</th>
-                  <th>Quantity</th>
-                  <th>Value</th>
-                  <th>Action</th>
+                  <th>Emri</th>
+                  <th>Kategoria</th>
+                  <th>Cmimi</th>
+                  <th>Sasia</th>
+                  <th>Vlera</th>
+                  <th>Veprimi</th>
                 </tr>
               </thead>
 
@@ -158,11 +158,11 @@ const ProductList = ({ products, isLoading }) => {
         </div>
         <ReactPaginate
           breakLabel="..."
-          nextLabel="Next"
+          nextLabel="Me tej"
           onPageChange={handlePageClick}
           pageRangeDisplayed={3}
           pageCount={pageCount}
-          previousLabel="Prev"
+          previousLabel="Mbrapa"
           renderOnZeroPageCount={null}
           containerClassName="pagination"
           pageLinkClassName="page-num"

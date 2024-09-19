@@ -12,13 +12,13 @@
   color: #fff;
   transform: translateY(0);
   transition: all 0.3s;
+  border-radius: 10px;
 
   // background-color: green;
 
   &:hover {
     cursor: pointer;
     // border: 3px solid #fff;
-    transform: translateY(-5px);
   }
 
   .info-icon {

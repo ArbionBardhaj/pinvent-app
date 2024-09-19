@@ -1,5 +1,5 @@
 .home {
-  background-color: #030b6b;
+  background-color: #110f7e;
   min-height: 100vh;
 
   & nav {
@@ -23,6 +23,9 @@
     color: #fff;
   }
 }
+.logo-img{
+  height: 2em;
+}
 
 .hero {
   display: flex;
@@ -32,6 +35,8 @@
 
 .hero-text {
   width: 50%;
+  animation: moveUp 1s ease ;
+
   & > * {
     color: #fff;
     margin-bottom: 2rem;
@@ -44,7 +49,21 @@
   }
 }
 .hero-image {
-  width: 50%;
+  width: 70%;
+  margin-top: 10%;
+  height: 10%;
+  animation: moveUp 1s ease ;
+
+}
+
+
+@keyframes moveUp {
+  from {
+    transform: translateY(30%);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 @media screen and (max-width: 600px) {
   .hero {

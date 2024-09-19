@@ -1,6 +1,6 @@
 import React from "react";
-import { RiProductHuntLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
+import logo from "../../assets/icon.png"
 import "./Home.scss";
 import heroImg from "../../assets/inv-img.png";
 import { ShowOnLogin, ShowOnLogout } from "../../components/protect/HiddenLink";
@@ -10,19 +10,19 @@ const Home = () => {
     <div className="home">
       <nav className="container --flex-between ">
         <div className="logo">
-          <RiProductHuntLine size={35} />
+          <img src={logo} alt="img" className="logo-img" size={12} />
         </div>
 
         <ul className="home-links">
           <ShowOnLogout>
             <li>
-              <Link to="/register">Register</Link>
+              <Link to="/register">Regjistrohu</Link>
             </li>
           </ShowOnLogout>
           <ShowOnLogout>
             <li>
               <button className="--btn --btn-primary">
-                <Link to="/login">Login</Link>
+                <Link to="/login">Hyr</Link>
               </button>
             </li>
           </ShowOnLogout>
@@ -38,21 +38,16 @@ const Home = () => {
       {/* HERO SECTION */}
       <section className="container hero">
         <div className="hero-text">
-          <h2>Inventory {"&"} Stock Management Solution</h2>
+          <h2>Inventari i gjimnazit "Muhamer Janina"</h2>
           <p>
-            Inventory system to control and manage proucts in the warehouse in
-            real timeand integrated to make it easier to develop your business.
+            Sistemi i inventarit në kohë reale për gjimnazin Muhamer Janina
+            integron teknologji për menaxhimin e produkteve në depo. Ndërfaqja e
+            përdoruesit është e përshtatshme dhe ofron akses të ndryshueshëm për
+            personelin. Ky sistem përmirëson efikasitetin dhe monitoron stokun
+            në mënyrë efektive, duke ndihmuar në zhvillimin e shkollës.
           </p>
-          <div className="hero-buttons">
-            <button className="--btn --btn-secondary">
-              <Link to="/dashboard">Free Trial 1 Month</Link>
-            </button>
-          </div>
-          <div className="--flex-start">
-            <NumberText num="14K" text="Brand Owners" />
-            <NumberText num="23K" text="Active Users" />
-            <NumberText num="500+" text="Partners" />
-          </div>
+         
+        
         </div>
 
         <div className="hero-image">
@@ -63,13 +58,6 @@ const Home = () => {
   );
 };
 
-const NumberText = ({ num, text }) => {
-  return (
-    <div className="--mr">
-      <h3 className="--color-white">{num}</h3>
-      <p className="--color-white">{text}</p>
-    </div>
-  );
-};
+
 
 export default Home;
